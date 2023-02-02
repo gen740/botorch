@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import warnings
 from abc import ABC, abstractmethod
-from typing import Any, Optional, Tuple
+from typing import Any, Optional, Tuple, Union
 
 import torch
 from botorch.exceptions.errors import InputDataError
@@ -47,7 +47,7 @@ class MCSampler(Module, ABC):
 
     def __init__(
         self,
-        sample_shape: torch.Size,
+        sample_shape: Union[torch.Size, int],
         seed: Optional[int] = None,
         **kwargs: Any,
     ) -> None:
